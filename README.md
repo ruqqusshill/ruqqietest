@@ -5,8 +5,8 @@ Unofficial Ruqqus wrapper for Android
 
 
 Thanks for checking out RuqqieNav! 
-This is my first attempt at an open source app and provides a slide-out navigation drawer combined with a swipe to refesh Webview which shows a list 
-of the most common links and helps make navigating around the mobile site of Ruqqus.com more convenient.
+This is my first attempt at an open source app, it provides a slide-out navigation drawer combined with a swipe to refesh Webview giving you a quick-access list 
+of the most common links you'll need and generally making navigating around the mobile site of Ruqqus.com more convenient.
 
 This is made using Kotlin in Android Studio and I have no idea what I'm doing most of the time.
 If you see anything ridiculous please open an issue and I will pretend to know how to fix it.
