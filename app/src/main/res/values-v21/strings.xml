@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="create">create</string>
+    <string name="app_name">RuqqieNav</string>
+    <string name="refresh">refresh</string>
+    <string name="stopbut">stop</string>
 </resources>

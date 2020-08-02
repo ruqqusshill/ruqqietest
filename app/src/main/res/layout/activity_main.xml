@@ -24,11 +24,12 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@drawable/side_nav_bar"
+        android:background="@color/colorPrimary"
         android:checkableBehavior="single"
         android:fitsSystemWindows="true"
         android:isScrollContainer="true"
         app:headerLayout="@layout/nav_header"
+        app:itemBackground="@color/colorPrimary"
         app:itemIconTint="@color/colorAccented"
         app:itemTextColor="#FFFFFF"
         app:menu="@menu/nav_menu" />

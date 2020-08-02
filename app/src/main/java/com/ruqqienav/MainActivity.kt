@@ -2,6 +2,7 @@ package com.ruqqienav
 
 import android.app.DownloadManager
 import android.content.Context
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.ContextMenu
@@ -23,7 +24,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.content_main.*
 
-
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var toolbar: Toolbar
@@ -33,58 +33,54 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //the variable below - 'swipeRefreshLayout' is reported by debugger as redundant but seems to be required for SRL to initialise correctly
-        var swipeRefreshLayout: SwipeRefreshLayout? = null
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
-        swipeRefreshLayout = findViewById(R.id.swipeContainer)
-        swipeRefreshLayout!!.setOnRefreshListener {
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        drawerLayout.setScrimColor(Color.TRANSPARENT);
+        drawerLayout.setDrawerElevation(0F);
+
+        //the variable below - 'swipeRefreshLayout' is reported by debugger as redundant but seems to be required for SRL to initialise correctly
+        var swipeRefreshLayout: SwipeRefreshLayout? = null
+            swipeRefreshLayout = findViewById(R.id.swipeContainer)
+            swipeRefreshLayout!!.setOnRefreshListener {
             webview.reload()
-            swipeRefreshLayout.isRefreshing = false
-        }
+            swipeRefreshLayout.isRefreshing = false }
 
-
-
-
-        webview.getSettings()
-        webview.loadUrl("https://www.ruqqus.com")
-        webview.webViewClient = WebViewClient()
-        webview.settings.userAgentString = "RuqqieNav"
-        webview.settings.javaScriptEnabled = true
-        webview.settings.displayZoomControls = false
-        webview.settings.builtInZoomControls = true
-        webview.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK;
-        webview.settings.setAppCachePath(cacheDir.path);
-        webview.settings.setAppCacheEnabled(true);
-        webview.settings.allowFileAccess = true;
-        webview.settings.domStorageEnabled = true;
-        registerForContextMenu(webview)
-        setWebContentsDebuggingEnabled(false)
-        webview.webChromeClient = object : WebChromeClient() {
-            override fun onProgressChanged(view: WebView, progress: Int) {
-                progressBar.progress = progress
-                if (progress == 100) {
+                webview.getSettings()
+                webview.loadUrl("https://www.ruqqus.com")
+                webview.webViewClient = WebViewClient()
+                webview.settings.userAgentString = "RuqqieNav"
+                webview.settings.javaScriptEnabled = true
+                webview.settings.displayZoomControls = false
+                webview.settings.builtInZoomControls = true
+                webview.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK;
+                webview.settings.setAppCachePath(cacheDir.path);
+                webview.settings.setAppCacheEnabled(true);
+                webview.settings.allowFileAccess = true;
+                webview.settings.domStorageEnabled = true;
+                setWebContentsDebuggingEnabled(false)
+                registerForContextMenu(webview)
+//cause of transparancy bug could be with this chromeclient ?
+                webview.webChromeClient = object : WebChromeClient() {
+                    override fun onProgressChanged(view: WebView, progress: Int) {
+                    progressBar.progress = progress
+                    if (progress == 100) {
                     progressBar.visibility = View.GONE
-                } else {
+                    } else {
                     progressBar.visibility = View.VISIBLE
                 }
-                val stop_but = findViewById(R.id.stopbut) as ImageButton
-
-                stop_but.setOnClickListener {
-
+                    val stop_but = findViewById(R.id.stopbut) as ImageButton
+                    stop_but.setOnClickListener {
                     webview.stopLoading()
                 }
 
-                val btn_click_me = findViewById(R.id.btnclickme) as ImageButton
-
-                btn_click_me.setOnClickListener {
-
+                    val btn_click_me = findViewById(R.id.btnclickme) as ImageButton
+                    btn_click_me.setOnClickListener {
                     webview.reload()
                 }
 
-                view.loadUrl(
+                    view.loadUrl(
                     "javascript:(function() { " +
                             "document.getElementById('mobile-bottom-navigation-bar').style.display='none'}" +
                             ")()"
@@ -100,7 +96,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navView.setNavigationItemSelectedListener(this)
     }
 
-
     override fun onBackPressed() {
         if (webview!!.canGoBack()) {
             webview?.goBack()
@@ -109,10 +104,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             webview.webViewClient = WebViewClient()
         }
 
-
     }
-
-    //https://stackoverflow.com/questions/48362239/how-to-download-an-image-from-webview-by-long-press
+    //solution taken from https://stackoverflow.com/questions/48362239/how-to-download-an-image-from-webview-by-long-press
     override fun onCreateContextMenu(
         contextMenu: ContextMenu, view: View?,
         contextMenuInfo: ContextMenuInfo?
@@ -144,11 +137,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     }
                     false
                 }
+            }
         }
-    }
 
-
-     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_homepage -> {
                 webview.loadUrl("https://www.ruqqus.com")
