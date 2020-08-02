@@ -1,0 +1,1 @@
+RuqqieNav is a colourful wrapper for the mobile site of Ruqqus.com

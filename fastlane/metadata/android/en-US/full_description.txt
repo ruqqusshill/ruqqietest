@@ -1,0 +1,1 @@
+It works with both the dark and light modes offered by the site and provides a slide out navigation menu with the most common links from the site which makes moving around and browsing feel more efficient.

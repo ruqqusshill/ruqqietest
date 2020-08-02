@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_homepage"
+            android:icon="@drawable/ic_home"
+            android:title="Homepage" />
+
+        <item
+            android:id="@+id/nav_trending"
+            android:icon="@drawable/ic_trending"
+            android:title="Trending Today" />
+
+        <item
+            android:id="@+id/nav_newest"
+            android:icon="@drawable/ic_new"
+            android:title="Newest Posts" />
+
+        <item
+            android:id="@+id/nav_commented"
+            android:icon="@drawable/ic_comments"
+            android:title="Most Commented" />
+
+        <item
+            android:id="@+id/nav_disputed"
+            android:icon="@drawable/ic_flat"
+            android:title="Disputed Today" />
+
+        <item
+            android:id="@+id/nav_post"
+            android:icon="@drawable/ic_post"
+            android:title="Create Post" />
+
+        <item
+            android:id="@+id/nav_discover"
+            android:icon="@drawable/ic_search"
+            android:title="Discover Guilds" />
+
+        <item
+            android:id="@+id/nav_rand"
+            android:icon="@drawable/ic_rand"
+            android:title="Random Guild" />
+
+        <item
+            android:id="@+id/nav_yourguilds"
+            android:icon="@drawable/ic_guild"
+            android:title="Your Guilds" />
+
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/ic_settings"
+            android:title="Account Settings" />
+
+        <item
+            android:id="@+id/nav_mod"
+            android:icon="@drawable/ic_mod"
+            android:title="Mod Queue" />
+
+        <item
+            android:id="@+id/nav_devstream"
+            android:icon="@drawable/ic_video"
+            android:title="Dev Streams" />
+
+        <item
+            android:id="@+id/nav_discord"
+            android:icon="@drawable/ic_comments"
+            android:title="Discord" />
+
+        <item
+            android:id="@+id/nav_help"
+            android:icon="@drawable/ic_help"
+            android:title="Help" />
+
+        <item
+            android:id="@+id/nav_github"
+            android:icon="@drawable/ic_code"
+            android:title="Ruqqus Github" />
+
+        <item
+            android:id="@+id/nav_github2"
+            android:icon="@drawable/ic_code"
+            android:title="RuqqieNav Github" />
+
+    </group>
+
+</menu>
