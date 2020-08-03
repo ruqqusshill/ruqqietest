@@ -15,6 +15,7 @@ If you want to assist or contribute please feel free. Speaking of free - this ap
 Don't forget to check out ruqqus.com !
 .
 
+<a href="url"><img src="https://i.imgur.com/CTzimrE.jpg" align="left" height="460" width="260" ></a>
 
 
 
