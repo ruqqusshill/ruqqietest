@@ -1,1 +1,2 @@
-It works with both the dark and light modes offered by the site and provides a slide out navigation menu with the most common links from the site which makes moving around and browsing feel more efficient.
+RuqqieNav is an unofficial app for ruqqus.com. It features slide-out navigation bar,swipe-to-refresh, bigger buttons for fat fingers and some custom CSS styling.
+RuqqieNav is free, open source, contains no ads and requires the bare minimum pemissions to make the app run.

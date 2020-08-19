@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">RuqqieNav</string>
-    <string name="refresh">refresh</string>
-    <string name="stopbut">stop</string>
+    <string name="v1_9">v1.9</string>
 </resources>

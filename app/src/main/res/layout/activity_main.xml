@@ -3,8 +3,10 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    app:theme="@style/NavigationDrawerStyle"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
+
 
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -19,20 +21,22 @@
         android:foreground="@color/colorPrimary" />
 
     <com.google.android.material.navigation.NavigationView
-
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/colorPrimary"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="#1E1135"
         android:checkableBehavior="single"
         android:fitsSystemWindows="true"
         android:isScrollContainer="true"
         app:headerLayout="@layout/nav_header"
-        app:itemBackground="@color/colorPrimary"
         app:itemIconTint="@color/colorAccented"
-        app:itemTextColor="#FFFFFF"
-        app:menu="@menu/nav_menu" />
+        app:itemTextColor="@color/colorPrimary"
+
+
+        app:menu="@menu/nav_menu"
+        app:theme="@style/ThemeOverlay.AppCompat.navTheme" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
 

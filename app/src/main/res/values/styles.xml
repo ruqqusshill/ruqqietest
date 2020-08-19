@@ -2,7 +2,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
 
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">#6D805AD5</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:scrollbarThumbVertical">@android:color/transparent</item>
         <item name="android:navigationBarColor">@color/colorPrimary</item>
@@ -13,5 +13,32 @@
         <item name="windowNoTitle">true</item>
 
     </style>
+    <style name="NavigationDrawerStyle">
+
+        <item name="android:textSize">16sp</item><!-- text size in menu-->
+
+        <!-- item size in menu-->
+        <item name="android:listPreferredItemHeightSmall">40dp</item>
+        <item name="listPreferredItemHeightSmall">40dp</item>
+
+        <!-- item padding left in menu-->
+        <item name="android:listPreferredItemPaddingLeft">3dp</item>
+        <item name="listPreferredItemPaddingLeft">3dp</item>
+
+        <!-- item padding right in menu-->
+        <item name="android:listPreferredItemPaddingRight">8dp</item>
+        <item name="listPreferredItemPaddingRight">8dp</item>
+    </style>
+
+    <style name="ThemeOverlay.AppCompat.navTheme">
+
+        <!-- Color of text and icon when SELECTED -->
+        <item name="colorPrimary">@color/checked</item>
+
+        <!-- Background color when SELECTED -->
+        <item name="colorControlHighlight">@color/checked</item>
+
+    </style>
+
 </resources>
 

@@ -5,6 +5,6 @@
     android:background="@drawable/head"
     android:orientation="vertical"
     android:paddingLeft="0dp"
-    android:paddingBottom="2dp"
+    android:paddingBottom="0dp"
     android:scrollbarSize="2dp"
     android:textColor="#ECECEC" />

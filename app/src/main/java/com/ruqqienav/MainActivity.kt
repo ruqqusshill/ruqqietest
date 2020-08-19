@@ -1,5 +1,6 @@
 package com.ruqqienav
 
+import android.annotation.SuppressLint
 import android.app.DownloadManager
 import android.content.Context
 import android.graphics.Color
@@ -7,13 +8,15 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.ContextMenu
 import android.view.ContextMenu.ContextMenuInfo
+import android.view.KeyEvent
 import android.view.MenuItem
 import android.view.View
-import android.webkit.*
+import android.webkit.URLUtil
+import android.webkit.WebChromeClient
+import android.webkit.WebSettings
+import android.webkit.WebView
 import android.webkit.WebView.HitTestResult
 import android.webkit.WebView.setWebContentsDebuggingEnabled
-import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -22,14 +25,19 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.navigation.NavigationView
+import com.izikode.izilib.veinview.VeinView
+import com.izikode.izilib.veinview.VeinViewClient
+import com.izikode.izilib.veinview.VeinViewInjector
+import com.izikode.izilib.veinview.defaultClient
 import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
+    private val webview: VeinView by lazy { findViewById<VeinView>(R.id.webview) }
     lateinit var toolbar: Toolbar
     lateinit var drawerLayout: DrawerLayout
     lateinit var navView: NavigationView
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -37,57 +45,55 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navView = findViewById(R.id.nav_view)
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        drawerLayout.setScrimColor(Color.TRANSPARENT);
-        drawerLayout.setDrawerElevation(0F);
-
+        drawerLayout.setScrimColor(Color.TRANSPARENT)
         //the variable below - 'swipeRefreshLayout' is reported by debugger as redundant but seems to be required for SRL to initialise correctly
         var swipeRefreshLayout: SwipeRefreshLayout? = null
-            swipeRefreshLayout = findViewById(R.id.swipeContainer)
-            swipeRefreshLayout!!.setOnRefreshListener {
+        swipeRefreshLayout = findViewById(R.id.swipeContainer)
+        swipeRefreshLayout!!.setOnRefreshListener {
             webview.reload()
-            swipeRefreshLayout.isRefreshing = false }
+            swipeRefreshLayout.isRefreshing = false
+        }
+        webview.settings.apply {
+            webview.settings
+            webview.settings.userAgentString = "RuqqieNav"
+            webview.settings.javaScriptEnabled = true
+            webview.settings.displayZoomControls = false
+            webview.settings.builtInZoomControls = true
+            webview.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
+            webview.settings.allowFileAccess = true
+            webview.settings.domStorageEnabled = true
+            setWebContentsDebuggingEnabled(false)
+            webview.settings.useWideViewPort = false
+            webview.settings.setSupportZoom(true)
+            //webview.settings.setSupportMultipleWindows(true)
+            registerForContextMenu(webview)
+            webview.setVeinViewClient(object : VeinViewClient() {
+                override fun onReadyToInject(injector: VeinViewInjector, page: String) {
 
-                webview.getSettings()
-                webview.loadUrl("https://www.ruqqus.com")
-                webview.webViewClient = WebViewClient()
-                webview.settings.userAgentString = "RuqqieNav"
-                webview.settings.javaScriptEnabled = true
-                webview.settings.displayZoomControls = false
-                webview.settings.builtInZoomControls = true
-                webview.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK;
-                webview.settings.setAppCachePath(cacheDir.path);
-                webview.settings.setAppCacheEnabled(true);
-                webview.settings.allowFileAccess = true;
-                webview.settings.domStorageEnabled = true;
-                setWebContentsDebuggingEnabled(false)
-                registerForContextMenu(webview)
-//cause of transparancy bug could be with this chromeclient ?
-                webview.webChromeClient = object : WebChromeClient() {
-                    override fun onProgressChanged(view: WebView, progress: Int) {
-                    progressBar.progress = progress
-                    if (progress == 100) {
+                    injector.injectCSS(R.raw.cssinject)
+
+                }
+            })
+
+            webview.loadUrl("https://www.ruqqus.com")
+        }
+        webview.webChromeClient = object : WebChromeClient() {
+
+            override fun onProgressChanged(view: WebView, progress: Int) {
+                progressBar.progress = progress
+                if (progress == 100) {
                     progressBar.visibility = View.GONE
-                    } else {
+                } else {
                     progressBar.visibility = View.VISIBLE
                 }
-                    val stop_but = findViewById(R.id.stopbut) as ImageButton
-                    stop_but.setOnClickListener {
-                    webview.stopLoading()
-                }
-
-                    val btn_click_me = findViewById(R.id.btnclickme) as ImageButton
-                    btn_click_me.setOnClickListener {
-                    webview.reload()
-                }
-
-                    view.loadUrl(
+                webview.loadUrl(
                     "javascript:(function() { " +
-                            "document.getElementById('mobile-bottom-navigation-bar').style.display='none'}" +
-                            ")()"
-                );
+                            "document.getElementById('mobile-bottom-navigation-bar').style.display='none'}" + ")()"
+                )
             }
 
         }
+
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar, 0, 0
         )
@@ -95,26 +101,36 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
         navView.setNavigationItemSelectedListener(this)
     }
-
-    override fun onBackPressed() {
-        if (webview!!.canGoBack()) {
-            webview?.goBack()
-        } else {
-            super.onBackPressed()
-            webview.webViewClient = WebViewClient()
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_BACK && webview.canGoBack()) {
+            webview.goBack()
+            return true
         }
-
+            return super.onKeyDown(keyCode, event)
     }
-    //solution taken from https://stackoverflow.com/questions/48362239/how-to-download-an-image-from-webview-by-long-press
+    override fun onPause()
+    {
+        super.onPause()
+        webview.onPause()
+        webview.pauseTimers()
+    }
+        override fun onResume() {
+        super.onResume()
+        webview.onResume()
+        webview.resumeTimers()
+    }
+
+//solution taken from https://stackoverflow.com/questions/48362239/how-to-download-an-image-from-webview-by-long-press
     override fun onCreateContextMenu(
         contextMenu: ContextMenu, view: View?,
-        contextMenuInfo: ContextMenuInfo?
-    ) {
+        contextMenuInfo: ContextMenuInfo?)
+        {
         super.onCreateContextMenu(contextMenu, view, contextMenuInfo)
-        val webViewHitTestResult: HitTestResult = webview.getHitTestResult()
+        val webViewHitTestResult: HitTestResult = webview.hitTestResult
         if (webViewHitTestResult.type == HitTestResult.IMAGE_TYPE ||
-            webViewHitTestResult.type == HitTestResult.SRC_IMAGE_ANCHOR_TYPE
-        ) {
+            webViewHitTestResult.type == HitTestResult.SRC_IMAGE_ANCHOR_TYPE)
+
+        {
             contextMenu.add(0, 1, 0, "save image")
                 .setOnMenuItemClickListener {
                     val DownloadImageURL = webViewHitTestResult.extra
@@ -155,7 +171,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 webview.loadUrl("https://ruqqus.com/all?sort=new")
             }
             R.id.nav_commented -> {
-                webview.loadUrl("https://ruqqus.com/all?sort=activity")
+                webview.loadUrl("https://ruqqus.com/all?sort=activity&t=week")
             }
             R.id.nav_discover -> {
                 webview.loadUrl("https://ruqqus.com/browse")

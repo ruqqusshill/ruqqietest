@@ -6,87 +6,84 @@
 
         <item
             android:id="@+id/nav_homepage"
-            android:icon="@drawable/ic_home"
+            android:icon="@drawable/ic_baseline_home_24"
             android:title="Homepage" />
 
         <item
             android:id="@+id/nav_trending"
-            android:icon="@drawable/ic_trending"
+            android:icon="@drawable/ic_baseline_whatshot_24"
             android:title="Trending Today" />
 
         <item
             android:id="@+id/nav_newest"
-            android:icon="@drawable/ic_new"
+            android:icon="@drawable/ic_baseline_keyboard_arrow_up_24"
             android:title="Newest Posts" />
 
         <item
             android:id="@+id/nav_commented"
-            android:icon="@drawable/ic_comments"
+            android:icon="@drawable/ic_baseline_chat_24"
             android:title="Most Commented" />
 
         <item
             android:id="@+id/nav_disputed"
-            android:icon="@drawable/ic_flat"
+            android:icon="@drawable/ic_baseline_arrow_right_alt_24"
             android:title="Disputed Today" />
-
-
 
 
         <item
             android:id="@+id/nav_post"
-            android:icon="@drawable/ic_post"
+            android:icon="@drawable/ic_baseline_edit_24"
             android:title="Create Post" />
 
         <item
             android:id="@+id/nav_discover"
-            android:icon="@drawable/ic_search"
+            android:icon="@drawable/ic_baseline_search_24"
             android:title="Discover Guilds" />
 
         <item
             android:id="@+id/nav_rand"
-            android:icon="@drawable/ic_rand"
+            android:icon="@drawable/ic_baseline_search_24"
             android:title="Random Guild" />
 
         <item
             android:id="@+id/nav_yourguilds"
-            android:icon="@drawable/ic_guild"
+            android:icon="@drawable/ic_baseline_people_24"
             android:title="Your Guilds" />
 
         <item
             android:id="@+id/nav_account"
-            android:icon="@drawable/ic_settings"
+            android:icon="@drawable/ic_baseline_settings_24"
             android:title="Account Settings" />
 
         <item
             android:id="@+id/nav_mod"
-            android:icon="@drawable/ic_mod"
+            android:icon="@drawable/ic_baseline_check_24"
             android:title="Mod Queue" />
-
 
 
         <item
             android:id="@+id/nav_devstream"
-            android:icon="@drawable/ic_video"
+            android:icon="@drawable/ic_baseline_videocam_24"
             android:title="Dev Streams" />
 
         <item
             android:id="@+id/nav_discord"
-            android:icon="@drawable/ic_comments"
+            android:icon="@drawable/ic_baseline_face_24"
             android:title="Discord" />
 
         <item
             android:id="@+id/nav_help"
-            android:icon="@drawable/ic_help"
+            android:icon="@drawable/ic_baseline_help_outline_24"
             android:title="Help" />
 
         <item
             android:id="@+id/nav_github"
-            android:icon="@drawable/ic_code"
+            android:icon="@drawable/ic_baseline_code_24"
             android:title="Ruqqus Github" />
 
         <item
             android:id="@+id/nav_github2"
-            android:icon="@drawable/ic_code"
+            android:icon="@drawable/ic_baseline_code_24"
             android:title="RuqqieNav Github" />
 
     </group>

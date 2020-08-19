@@ -1,0 +1,135 @@
+.comment .comment-body .comment-text {
+margin-bottom: 1rem;
+word-break: break-word;
+
+overflow: hidden;
+border-style: hidden;
+background-color: #805ad530;
+border-radius: 10px;
+box-shadow: 1px 1px 3px 0px #000;
+padding: 10px;
+margin-top: 15px;
+}
+.post-actions {
+color: #a0aec0;
+font-weight: 400;
+box-shadow: 1px 1px 0px 0px #767676;
+border-left: hidden;
+border-radius: 10px;
+}
+.score {
+color: #718096;
+font-weight: 900;
+}
+.arrow-up::before, .arrow-down::before, .arrow-up:hover::before, .arrow-down:hover::before {
+font-size: 1.8rem;
+padding-right: 18px;
+padding-left: 15px;
+font-weight: 600;
+}
+.fa-arrow-alt-up::before {
+font-size: 1.8rem;
+font-weight: 600;
+}
+.fa-arrow-alt-down::before {
+font-size: 1.8rem;
+font-weight: 600;
+}
+.arrow-down::before {
+font-size: 1.8rem;
+color: #cbd5e0;
+font-weight: 600;
+}
+.comment-actions .score {
+color: #747474;
+font-weight: 900;
+}
+.score {
+color: #747474;
+font-weight: 900;
+}
+.comment-actions .list-inline {
+margin-bottom: 1rem;
+word-break: break-word;
+color: #877ae4;
+overflow: hidden;
+border-style: hidden;
+border-left-style: hidden;
+box-shadow: 1px 1px 0px 0px #767676;
+border-radius: 10px;
+}
+.comment .comment-body .user-info {
+font-size: 15px;
+color: #718096;
+margin-bottom: .25rem;
+margin-top: -.25rem;
+margin-left: 0.5rem;
+font-weight: 800;
+}
+.profile-pic-25 {
+width: 45px;
+height: 45px;
+border-radius: 10%;
+}
+.post-img {
+width: 140px;
+height: 90px;
+background-color: #805ad530;
+border-radius: 10px;
+box-shadow: 6px 5px 6px 1px #805ad590;
+padding: 0px;
+margin-top: 15px;
+margin-right: 3px
+}
+#frontpage .post-title a {
+
+font-weight: 400;
+font-size: 1rem;
+margin-left: 5px;
+margin-top: 15px;
+}
+.post-title {
+font-size: 1rem;
+font-weight: 400;
+line-height: normal;
+overflow: hidden;
+margin-top: 15px;
+}
+.post-actions .fa, .post-actions .fas, .post-actions .far {
+font-size: 1rem;
+color: #805ad5;
+margin-top: 8px;
+}
+.post-actions .list-inline .list-inline-item {
+margin-right: 25px;
+}
+.post-meta {
+position: relative;
+font-weight: 600;
+padding-top: 3px;
+}
+.post-actions .list-inline .list-inline-item {
+margin-right: 1.5rem;
+margin-left: 15px;
+}
+.voting {
+font-weight: 600;
+font-size: 1.25rem;
+}
+.comment-actions .score {
+font-weight: 600;
+font-size: 1.25rem;
+}
+.border-top {
+border-top: 2px solid #805ad5 !important;
+}
+.btn:not(:disabled):not(.disabled) {
+font-size: 16px;
+}
+.pagination-sm .page-item:last-child .page-link {
+font-size: 18px;
+}
+.comment .comment-body .comment-text {
+    word-break: break-word;
+
+}
