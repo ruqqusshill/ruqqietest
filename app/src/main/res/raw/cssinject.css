@@ -1,7 +1,6 @@
 .comment .comment-body .comment-text {
 margin-bottom: 1rem;
 word-break: break-word;
-
 overflow: hidden;
 border-style: hidden;
 background-color: #805ad530;
@@ -116,6 +115,10 @@ margin-left: 15px;
 font-weight: 600;
 font-size: 1.25rem;
 }
+#frontpage .voting, #search .voting, #userpage .voting, #guild .voting {
+margin-right: 15px;
+
+}
 .comment-actions .score {
 font-weight: 600;
 font-size: 1.25rem;
@@ -131,5 +134,4 @@ font-size: 18px;
 }
 .comment .comment-body .comment-text {
     word-break: break-word;
-
 }

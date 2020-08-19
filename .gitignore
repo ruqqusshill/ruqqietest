@@ -96,3 +96,6 @@ README.md
 .idea/LICENSE
 .idea/settings.gradle
 README.md
+*.md
+*.md
+.idea/misc.xml
