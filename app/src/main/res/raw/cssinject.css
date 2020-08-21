@@ -1,13 +1,32 @@
-.comment .comment-body .comment-text {
-margin-bottom: 1rem;
-word-break: break-word;
-overflow: hidden;
-border-style: hidden;
-background-color: #805ad530;
-border-radius: 10px;
-box-shadow: 1px 1px 3px 0px #000;
-padding: 10px;
-margin-top: 15px;
+#frontpage .posts .card, #userpage .posts .card, #search .posts .card, #guild .posts .card {
+background-color: transparent;
+}
+.posts, #thread #main-content-col {
+background-color: #000000c7;
+}
+#frontpage, #search, #guild {
+padding-top: 98px;
+background-color: #0000;
+background-attachment: fixed;
+background-image: url("https://ruqqus.com/assets/images/guilds/default-guild-banner.png");
+}
+*, ::before, ::after {
+color: darkgray;
+}
+.navbar-light {
+background-color: #000;
+}
+.navbar-nav .nav-link, .navbar-expand-md .navbar-nav .nav-link {
+color: #805ad5;
+}
+#frontpage .post-title a {
+color: #fff;
+font-weight: bold;
+padding-top: 5px;
+}
+#frontpage .post-title a:hover, #frontpage .post-title a:active, #frontpage .post-title a:focus {
+	color: #a8a8a8;
+	padding-top: 4px;
 }
 .post-actions {
 color: #a0aec0;
@@ -80,58 +99,38 @@ padding: 0px;
 margin-top: 15px;
 margin-right: 3px
 }
-#frontpage .post-title a {
+#fixed-bar-mobile {
+box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.05),0 0 0 1px rgb(68, 68, 68);
+}
+.bg-white {
+background-color: #000 !important;
+}
+.pl-3, .px-3 {
+padding-left: 35% !important;
+background-color: black;
+}
+.dropdown-actions .fa, .dropdown-actions .fas, .dropdown-actions .far {
+font-size: 1.3rem;
+color: #fff;
+}
 
-font-weight: 400;
-font-size: 1rem;
-margin-left: 5px;
-margin-top: 15px;
+.dropdown-actions .fa, .dropdown-actions .fas, .dropdown-actions .far {
+	font-size: 1.3rem;
+	color: #805ad5;
+	background-color: black;
+	width: 1.6rem;
 }
-.post-title {
-font-size: 1rem;
-font-weight: 400;
-line-height: normal;
-overflow: hidden;
-margin-top: 15px;
+.dropdown-menu.show {
+	display: block;
+	background: black;
 }
-.post-actions .fa, .post-actions .fas, .post-actions .far {
-font-size: 1rem;
-color: #805ad5;
-margin-top: 8px;
+.dropdown-item {
+	color: #fff;
 }
-.post-actions .list-inline .list-inline-item {
-margin-right: 25px;
+.text-muted {
+    color: #fff !important;
+    font-weight: 600;
 }
-.post-meta {
-position: relative;
-font-weight: 600;
-padding-top: 3px;
-}
-.post-actions .list-inline .list-inline-item {
-margin-right: 1.5rem;
-margin-left: 15px;
-}
-.voting {
-font-weight: 600;
-font-size: 1.25rem;
-}
-#frontpage .voting, #search .voting, #userpage .voting, #guild .voting {
-margin-right: 15px;
-
-}
-.comment-actions .score {
-font-weight: 600;
-font-size: 1.25rem;
-}
-.border-top {
-border-top: 2px solid #805ad5 !important;
-}
-.btn:not(:disabled):not(.disabled) {
-font-size: 16px;
-}
-.pagination-sm .page-item:last-child .page-link {
-font-size: 18px;
-}
-.comment .comment-body .comment-text {
-    word-break: break-word;
+.font-weight-normal {
+    font-weight: 600 !important;
 }

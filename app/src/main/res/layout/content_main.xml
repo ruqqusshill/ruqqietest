@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3F2E76"
+    android:background="#000000"
     android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -17,12 +17,13 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="#805ad5"
+            android:background="#000000"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="#000000"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -31,7 +32,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:text="testbuild" />
-
 
 
             </LinearLayout>
@@ -56,13 +56,15 @@
 
             android:id="@+id/swipeContainer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="#000000">
 
             <com.izikode.izilib.veinview.VeinView
                 android:id="@+id/webview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:backgroundTint="#805ad5" />
+                android:background="#000000"
+                android:backgroundTint="#000000" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

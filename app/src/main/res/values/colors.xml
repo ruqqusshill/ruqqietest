@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#805ad5</color>
-    <color name="colorPrimaryDark">#805ad5</color>
-    <color name="colorAccent">#805ad5</color>
-    <color name="colorAccented">#673AB7</color>
-    <color name="checked">#6D805AD5</color>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#000000</color>
+    <color name="colorAccented">#000000</color>
+    <color name="checked">#6D30009C</color>
+    #000000b8
 </resources>
 
 

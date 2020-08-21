@@ -31,6 +31,7 @@ import com.izikode.izilib.veinview.VeinViewInjector
 import com.izikode.izilib.veinview.defaultClient
 import kotlinx.android.synthetic.main.content_main.*
 
+
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private val webview: VeinView by lazy { findViewById<VeinView>(R.id.webview) }
     lateinit var toolbar: Toolbar
@@ -77,8 +78,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             webview.loadUrl("https://www.ruqqus.com")
         }
-        webview.webChromeClient = object : WebChromeClient() {
 
+        webview.webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView, progress: Int) {
                 progressBar.progress = progress
                 if (progress == 100) {
@@ -91,7 +92,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                             "document.getElementById('mobile-bottom-navigation-bar').style.display='none'}" + ")()"
                 )
             }
-
         }
 
         val toggle = ActionBarDrawerToggle(
