@@ -28,7 +28,6 @@ import com.google.android.material.navigation.NavigationView
 import com.izikode.izilib.veinview.VeinView
 import com.izikode.izilib.veinview.VeinViewClient
 import com.izikode.izilib.veinview.VeinViewInjector
-import com.izikode.izilib.veinview.defaultClient
 import kotlinx.android.synthetic.main.content_main.*
 
 
