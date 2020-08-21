@@ -3,7 +3,6 @@
     <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#000000</color>
-    <color name="colorAccented">#000000</color>
     <color name="checked">#6D30009C</color>
     #000000b8
 </resources>

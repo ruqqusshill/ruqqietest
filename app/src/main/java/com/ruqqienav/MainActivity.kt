@@ -68,7 +68,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             webview.settings.setSupportZoom(true)
             //webview.settings.setSupportMultipleWindows(true)
             registerForContextMenu(webview)
+            webview.loadUrl("https://www.ruqqus.com")
             webview.setVeinViewClient(object : VeinViewClient() {
+
                 override fun onReadyToInject(injector: VeinViewInjector, page: String) {
 
                     injector.injectCSS(R.raw.cssinject)
@@ -76,7 +78,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
             })
 
-            webview.loadUrl("https://www.ruqqus.com")
+
         }
 
         webview.webChromeClient = object : WebChromeClient() {
