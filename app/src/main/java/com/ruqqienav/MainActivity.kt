@@ -30,7 +30,6 @@ import com.izikode.izilib.veinview.VeinViewClient
 import com.izikode.izilib.veinview.VeinViewInjector
 import kotlinx.android.synthetic.main.content_main.*
 
-
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private val webview: VeinView by lazy { findViewById<VeinView>(R.id.webview) }
     lateinit var toolbar: Toolbar
@@ -59,6 +58,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             webview.settings.javaScriptEnabled = true
             webview.settings.displayZoomControls = false
             webview.settings.builtInZoomControls = true
+            webview.settings.setAppCacheEnabled(true)
             webview.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
             webview.settings.allowFileAccess = true
             webview.settings.domStorageEnabled = true
@@ -76,10 +76,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
                 }
             })
-
-
         }
-
         webview.webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView, progress: Int) {
                 progressBar.progress = progress
@@ -94,7 +91,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 )
             }
         }
-
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar, 0, 0
         )
@@ -120,8 +116,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         webview.onResume()
         webview.resumeTimers()
     }
-
-//solution taken from https://stackoverflow.com/questions/48362239/how-to-download-an-image-from-webview-by-long-press
+    //solution taken from https://stackoverflow.com/questions/48362239/how-to-download-an-image-from-webview-by-long-press
     override fun onCreateContextMenu(
         contextMenu: ContextMenu, view: View?,
         contextMenuInfo: ContextMenuInfo?)
@@ -130,7 +125,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val webViewHitTestResult: HitTestResult = webview.hitTestResult
         if (webViewHitTestResult.type == HitTestResult.IMAGE_TYPE ||
             webViewHitTestResult.type == HitTestResult.SRC_IMAGE_ANCHOR_TYPE)
-
         {
             contextMenu.add(0, 1, 0, "save image")
                 .setOnMenuItemClickListener {
@@ -156,7 +150,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
             }
         }
-
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_homepage -> {
