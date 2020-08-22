@@ -25,7 +25,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:layout_marginTop="?attr/actionBarSize"
-        android:background="#000000"
+        android:background="#E9000000"
         android:checkableBehavior="single"
         android:fitsSystemWindows="true"
         android:isScrollContainer="true"
